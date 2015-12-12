@@ -10,36 +10,22 @@
         android:orientation="vertical"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/firstName"
-            android:hint="@string/firstNamePlaceholder"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            />
-
-        <EditText
+       <EditText
             android:id="@+id/lastName"
             android:hint="@string/secondNamePlaceholder"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/ButtonSendFeedback"
-            android:layout_height="wrap_content"
-            android:text="@string/register"
-            android:onClick="register"
-            android:layout_width="fill_parent"/>
-
-        <Button
-            android:id="@+id/ButtonGoToMarks"
+     <Button
+            android:id="@+id/checkMarks"
             android:layout_height="wrap_content"
             android:text="@string/checkMarks"
-            android:onClick="goToMarks"
+            android:onClick="checkMarks"
             android:layout_width="fill_parent"/>
 
         <TextView
             android:id="@+id/feedback"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="10pt"/>
     </LinearLayout>

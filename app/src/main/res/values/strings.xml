@@ -8,5 +8,7 @@
     <string name="firstNamePlaceholder">Your name</string>
     <string name="firstNameLabel">Name</string>
     <string name="register">Present!</string>
+    <string name="checkMarks">Check marks</string>
+    <string name="title_activity_mark2">MarkActivity2</string>
 
 </resources>

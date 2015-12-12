@@ -1,16 +1,15 @@
 package pl.edu.agh.kis.restclient;
 
 import android.app.Activity;
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.springframework.http.converter.json.GsonHttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
-
+/**
+ * Created by wukat on 12.12.15.
+ */
 public class MainActivity extends Activity {
 
     @Override
@@ -31,7 +30,13 @@ public class MainActivity extends Activity {
             giveFeedback("Fill in your name!");
             return;
         }
-        new HttpRequestTask().execute(new Student(firstName, lastName));
+        giveFeedback("You should have registered by now... You'd better check your marks!");
+    }
+
+    public void goToMarks(View button) {
+        Intent intent = new Intent(this, MarkActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private String getStringFromEditField(int id) {
@@ -51,30 +56,4 @@ public class MainActivity extends Activity {
         TextView feedbackField = (TextView) findViewById(R.id.feedback);
         feedbackField.setText(feedback);
     }
-
-    private class HttpRequestTask extends AsyncTask<Student, Void, Student> {
-        @Override
-        protected Student doInBackground(Student... params) {
-            try {
-                final String url = "http://10.0.2.2:8080/students";
-                RestTemplate restTemplate = new RestTemplate();
-                restTemplate.getMessageConverters().add(new GsonHttpMessageConverter());
-                return restTemplate.postForObject(url, params[0], Student.class);
-            } catch (Throwable e) {
-                Log.e("MainActivity", e.getMessage(), e);
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Student student) {
-            if (student != null) {
-                giveFeedback("Hello " + student.getFirstName() + " " + student.getLastName() + "\n" + "Nice to see you're such a decent student!");
-            } else {
-                giveFeedback("Well, your request appeared to be incorrect...");
-            }
-        }
-    }
-
 }
