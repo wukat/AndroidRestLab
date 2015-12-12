@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Class register</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_refresh">WTF</string>
+
+    <string name="secondNamePlaceholder">Your surname</string>
+    <string name="secondNameLabel">Surname</string>
+    <string name="firstNamePlaceholder">Your name</string>
+    <string name="firstNameLabel">Name</string>
+    <string name="register">Present!</string>
+
+</resources>
