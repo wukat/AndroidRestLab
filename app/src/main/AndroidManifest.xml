@@ -3,7 +3,8 @@
 
     package="pl.edu.agh.kis.restclient">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <!--change here -->
+    <uses-permission android:name="permission" />
 
     <application
         android:allowBackup="true"
