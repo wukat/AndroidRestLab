@@ -2,7 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ScrollView01"
-    android:layout_width="wrap_content"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:scrollbars="vertical">
     <LinearLayout
@@ -20,7 +20,7 @@
         <EditText
             android:id="@+id/lastName"
             android:hint="@string/secondNamePlaceholder"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"/>
 
         <Button
@@ -32,7 +32,7 @@
 
         <TextView
             android:id="@+id/feedback"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="10pt"/>
     </LinearLayout>
