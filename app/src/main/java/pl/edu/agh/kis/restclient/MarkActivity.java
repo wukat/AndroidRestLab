@@ -35,17 +35,53 @@ public class MarkActivity extends Activity {
     }
 
     public void checkMarks(View button) {
-        String lastName = getStringFromEditField(R.id.lastName);
-        if (lastName.isEmpty()) {
-            giveFeedback("Fill in your name!");
+        String id = getStringFromEditField(R.id.idOfStudent);
+        if (id.isEmpty()) {
+            giveFeedback("Fill in your id!");
             return;
         }
 
-        rest.getStudentByLastName(lastName).enqueue(new Callback<Student>() {
+        rest.getStudent(id).enqueue(new Callback<Student>() {
             @Override
             public void onResponse(Response<Student> response, Retrofit retrofit) {
-                System.out.println(response.raw());
-                giveFeedback("Your current mark is " + response.body());
+                if (response.body() != null && response.body().getFirstName() != null) {
+                    giveFeedback("Your current mark is " + response.body().getMark());
+                } else {
+                    giveFeedback("It seems like student you're looking for doesn't exist.");
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                giveFeedback("Well, it seems not to work!");
+            }
+        });
+    }
+
+    public void changeMark(View button) {
+        String id = getStringFromEditField(R.id.idOfStudent);
+        if (id.isEmpty()) {
+            giveFeedback("Fill in your id!");
+            return;
+        }
+
+        String mark = getStringFromEditField(R.id.newMark);
+        float markF;
+        try {
+            markF = Float.parseFloat(mark);
+        } catch (Exception e) {
+            giveFeedback("Fill in proper mark!");
+            return;
+        }
+
+        rest.changeMark(id, new MarkUpdate(markF)).enqueue(new Callback<Student>() {
+            @Override
+            public void onResponse(Response<Student> response, Retrofit retrofit) {
+                if (response.code() >= 200 && response.code() < 300) {
+                    giveFeedback("Ok, check it again!");
+                } else {
+                    giveFeedback("It seems like student you're looking for doesn't exist.");
+                }
             }
 
             @Override

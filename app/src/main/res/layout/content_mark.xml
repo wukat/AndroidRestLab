@@ -11,8 +11,8 @@
         android:layout_height="wrap_content">
 
        <EditText
-            android:id="@+id/lastName"
-            android:hint="@string/secondNamePlaceholder"
+            android:id="@+id/idOfStudent"
+            android:hint="@string/studentId"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"/>
 
@@ -21,6 +21,19 @@
             android:layout_height="wrap_content"
             android:text="@string/checkMarks"
             android:onClick="checkMarks"
+            android:layout_width="fill_parent"/>
+
+        <EditText
+            android:id="@+id/newMark"
+            android:hint="@string/newMark"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/changeMark"
+            android:layout_height="wrap_content"
+            android:text="@string/changeMark"
+            android:onClick="changeMark"
             android:layout_width="fill_parent"/>
 
         <TextView

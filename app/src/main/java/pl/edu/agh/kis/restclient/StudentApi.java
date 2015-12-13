@@ -1,7 +1,9 @@
 package pl.edu.agh.kis.restclient;
 
 import retrofit.Call;
+import retrofit.http.Body;
 import retrofit.http.GET;
+import retrofit.http.PATCH;
 import retrofit.http.Path;
 import retrofit.http.Query;
 
@@ -16,4 +18,6 @@ public interface StudentApi {
     @GET("/students/search/findByLastName")
     Call<Student> getStudentByLastName(@Query("name") String lastName);
 
+    @PATCH("/students/{id}")
+    Call<Student> changeMark(@Path("id") String id, @Body MarkUpdate update);
 }

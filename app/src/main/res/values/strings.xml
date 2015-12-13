@@ -9,6 +9,8 @@
     <string name="firstNameLabel">Name</string>
     <string name="register">Present!</string>
     <string name="checkMarks">Check marks</string>
-    <string name="title_activity_mark2">MarkActivity2</string>
+    <string name="changeMark">Change mark</string>
+    <string name="studentId">Your id</string>
+    <string name="newMark">New mark</string>
 
 </resources>

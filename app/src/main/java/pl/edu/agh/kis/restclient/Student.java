@@ -44,13 +44,4 @@ public class Student {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", mark=" + mark +
-                '}';
-    }
 }
