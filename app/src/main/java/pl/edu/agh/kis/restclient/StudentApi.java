@@ -18,6 +18,6 @@ public interface StudentApi {
     @GET("/students/search/findByLastName")
     Call<Student> getStudentByLastName(@Query("name") String lastName);
 
-    @PATCH("/students/{id}")
-    Call<Student> changeMark(@Path("id") String id, @Body MarkUpdate update);
+    // TODO use PATCH method and /students/{id} path to create changeMark mathod
+    Call<Student> changeMark(here insert 2 parameters - Path and Body);
 }

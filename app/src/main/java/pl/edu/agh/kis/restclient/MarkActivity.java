@@ -17,10 +17,10 @@ import retrofit.Retrofit;
  */
 public class MarkActivity extends Activity {
 
+    // TODO add GSON Converter Factory hare
     private StudentApi rest = new Retrofit.Builder()
             .baseUrl("http://10.0.2.2:8080")
-            .addConverterFactory(GsonConverterFactory.create(new GsonBuilder()
-                    .create()))
+            .addConverterFactory(here add gson factory)
             .build().create(StudentApi.class);
 
     @Override
@@ -77,8 +77,8 @@ public class MarkActivity extends Activity {
         rest.changeMark(id, new MarkUpdate(markF)).enqueue(new Callback<Student>() {
             @Override
             public void onResponse(Response<Student> response, Retrofit retrofit) {
-                if (response.code() >= 200 && response.code() < 300) {
-                    giveFeedback("Ok, check it again!");
+                if (response.code() == 200 || response.code() == 204) {
+                    giveFeedback("Ok, check your mark again!");
                 } else {
                     giveFeedback("It seems like student you're looking for doesn't exist.");
                 }
