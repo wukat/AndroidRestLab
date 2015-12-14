@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
             giveFeedback("Fill in your name!");
             return;
         }
-        new HttpPostTask().execute(new Student(firstName, lastName));
+        giveFeedback("It isn't that easy!");
     }
 
     private String getStringFromEditField(int id) {
@@ -56,10 +56,10 @@ public class MainActivity extends Activity {
         @Override
         protected Student doInBackground(Student... params) {
             try {
-                final String url = "http://46.101.116.241:8080/";
+                final String url = "Here comes the URL";
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new GsonHttpMessageConverter());
-                return restTemplate.postForEntity(url + "/students", params[0], Student.class, "").getBody();
+                return restTemplate.invokeSthHere(withSomeParams);
             } catch (Throwable e) {
                 Log.e("MainActivity", e.getMessage(), e);
             }
